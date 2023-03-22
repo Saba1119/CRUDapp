@@ -5,6 +5,7 @@ phases:
       golang: 1.18
   build:
     commands:
+      - go get -u github.com/aws/aws-sdk-go/...
       - go run crud.go
 artifacts:
   files:
