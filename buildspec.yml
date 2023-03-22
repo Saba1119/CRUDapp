@@ -9,6 +9,7 @@ phases:
       - touch file.txt
       - ls
       - go run crud.go
+      - cat file.txt
 artifacts:
   files:
       - '**/*'
