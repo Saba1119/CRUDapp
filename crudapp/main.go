@@ -36,7 +36,7 @@ func main() {
 
 	// Start the server
 	fmt.Println("Server listening on port 8000")
-	log.Fatal(http.ListenAndServe("0.0.0.0:8000", router))
+	log.Fatal(http.ListenAndServe(":8000", router))
 }
 
 // Get all items
