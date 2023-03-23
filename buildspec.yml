@@ -5,11 +5,9 @@ phases:
       golang: 1.18
   build:
     commands:
+      - cd crudapp
       - go get -u github.com/aws/aws-sdk-go/...
-      - touch file.txt
-      - ls
-      - go run crud.go
-      - cat file.txt
+      - go build main.go
 artifacts:
   files:
       - '**/*'
