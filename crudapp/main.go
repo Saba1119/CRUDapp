@@ -11,7 +11,6 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"github.com/gorilla/mux"
-	"github.com/aws/aws-sdk-go/service/s3"
 )
 
 // Define a struct to represent the data model for our items in DynamoDB
@@ -26,23 +25,6 @@ var svc = dynamodb.New(session.Must(session.NewSessionWithOptions(session.Option
 })))
 
 func main() {
-	
-	
-    // Specify the region
-    cfg := aws.Config{
-        Region: aws.String("us-east-1"),
-    }
-
-    // Create a new session with the specified config
-    sess := session.Must(session.NewSessionWithOptions(session.Options{
-        Config: cfg,
-    }))
-
-    // Create an S3 client with the session
-    svc := s3.New(sess)
-    }
-	
-       {
 	router := mux.NewRouter()
 
 	// Define the routes for our API
@@ -51,7 +33,7 @@ func main() {
 	router.HandleFunc("/items", createItem).Methods("POST")
 	router.HandleFunc("/items/{id}", updateItem).Methods("PUT")
 	//router.HandleFunc("/items/{id}", deleteItem).Methods("DELETE")
-        
+
 	// Start the server
 	fmt.Println("Server listening on port 8000")
 	log.Fatal(http.ListenAndServe(":8000", router))
