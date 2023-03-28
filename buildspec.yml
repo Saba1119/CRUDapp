@@ -9,6 +9,7 @@ phases:
       - go get -u github.com/aws/aws-sdk-go/...
       - go get github.com/gorilla/mux
       - go build main.go
+      - go build imageupload.go
 artifacts:
   files:
       - '**/*'
