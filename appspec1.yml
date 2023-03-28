@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: crudapp
+    destination: /home/ubuntu/crudapp/
+hooks:
+  ApplicationStop:
+    - location: script/application-stop.sh
+      timeout: 60
+      runas: root
+  AfterInstall:
+    - location: script/after-install.sh
+      timeout: 60
+      runas: root
+  ApplicationStart:
+    - location: script/application-start.sh
+      timeout: 60
+      runas: root
